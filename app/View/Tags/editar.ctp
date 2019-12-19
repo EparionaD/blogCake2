@@ -1,7 +1,7 @@
 <main class="container my-5" style="height:500px;">
     <div class="row my-3">
         <div class="col">
-            <h1>Agregar una categoría</h1>
+            <h1>Editar la categoría</h1>
         </div>
     </div>
     <div class="row">

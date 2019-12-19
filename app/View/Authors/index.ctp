@@ -17,6 +17,7 @@
                 <th scope="col"><?php echo $this->Paginator->sort('nombre') ?></th>
                 <th scope="col"><?php echo $this->Paginator->sort('apellido') ?></th>
                 <th scope="col"><?php echo $this->Paginator->sort('email') ?></th>
+                <th scope="col"><?php echo $this->Paginator->sort('Acciones') ?></th>
             </tr>
         </thead>
         <tbody>
@@ -24,10 +25,18 @@
                 foreach($editores as $value){
                     ?>
                     <tr>
-                        <td><?php echo $value['Author']['id'] ?></td>
-                        <td><?php echo $value['Author']['nombre'] ?></td>
-                        <td><?php echo $value['Author']['apellido'] ?></td>
-                        <td><?php echo $value['Author']['email'] ?></td>
+                        <td><?php echo $value['Author']['id']; ?></td>
+                        <td><?php echo $value['Author']['nombre']; ?></td>
+                        <td><?php echo $value['Author']['apellido']; ?></td>
+                        <td><?php echo $value['Author']['email']; ?></td>
+                        <td>
+                            <?php echo $this->Html->link('Editar',array('action'=>'editar',$value['Author']['id'])); ?>
+                            &nbsp;
+                            <?php echo $this->Form->postLink('Eliminar',
+                                array('action'=>'borrar',$value['Author']['id']),
+                                array('confirm'=>'Realmente deseas eliminar?'),
+                            ); ?>
+                        </td>
                     </tr>
                 <?php
                 }
