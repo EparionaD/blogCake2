@@ -1,34 +1,15 @@
-<?php
-/**
- * CakePHP(tm) : Rapid Development Framework (https://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
- *
- * Licensed under The MIT License
- * For full copyright and license information, please see the LICENSE.txt
- * Redistributions of files must retain the above copyright notice.
- *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
- * @link          https://cakephp.org CakePHP(tm) Project
- * @package       app.View.Layouts
- * @since         CakePHP(tm) v 0.10.0.1076
- * @license       https://opensource.org/licenses/mit-license.php MIT License
- */
-
-$cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework');
-$cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
-?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Inicio</title>
 	<?php echo $this->Html->charset(); ?>
-	<title>
-		<?php echo $cakeDescription ?>:
-		<?php echo $this->fetch('title'); ?>
-	</title>
+    <link rel="stylesheet" href="bootstrap.css">
 	<?php
-		echo $this->Html->meta('icon');
-
-		echo $this->Html->css('cake.generic');
+        echo $this->Html->css(array('bootstrap'));
+        echo $this->Html->script(array('jquery-3.4.1.min','bootstrap'));
 
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
@@ -36,28 +17,47 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 	?>
 </head>
 <body>
-	<div id="container">
-		<div id="header">
-			<h1><?php echo $this->Html->link($cakeDescription, 'https://cakephp.org'); ?></h1>
-		</div>
-		<div id="content">
+    <header class="container-fluid">
+        <div class="row">
+            <div class="col px-0">
+                <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-between" id="navbarTogglerDemo01">
+                        <a class="navbar-brand" href="#">Blog CakePhp</a>
+                        <ul class="navbar-nav">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="/blogCake2">Inicio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/blogCake2/Tidings">Noticas</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/blogCake2/Authors">Autores</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/blogCake2/Tags">Categorías</a>
+                            </li>
+                        </ul>
+                    </div>
+                  </nav>
+            </div>
+        </div>
+    </header>
+    <main>
+		<?php echo $this->Flash->render(); ?>
+		<?php echo $this->fetch('content'); ?>
+    </main>
+    <footer class="container-fluid bg-dark text-white text-muted d-flex justify-content-center py-2">
+        <div class="row">
+            <div class="col">
+                <p class="my-0">&copy; 2019 - Todos los derechos reservados</p>
+            </div>
+        </div>
+    </footer>
 
-			<?php echo $this->Flash->render(); ?>
-
-			<?php echo $this->fetch('content'); ?>
-		</div>
-		<div id="footer">
-			<?php echo $this->Html->link(
-					$this->Html->image('cake.power.gif', array('alt' => $cakeDescription, 'border' => '0')),
-					'https://cakephp.org/',
-					array('target' => '_blank', 'escape' => false, 'id' => 'cake-powered')
-				);
-			?>
-			<p>
-				<?php echo $cakeVersion; ?>
-			</p>
-		</div>
-	</div>
-	<?php echo $this->element('sql_dump'); ?>
+    <script src="jquery-3.4.1.min.js"></script>
+    <script src="bootstrap.js"></script>
 </body>
 </html>
