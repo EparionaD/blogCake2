@@ -28,16 +28,16 @@
                         <a class="navbar-brand" href="#">Blog CakePhp</a>
                         <ul class="navbar-nav">
                             <li class="nav-item active">
-                                <a class="nav-link" href="/blogCake2">Inicio</a>
+                                <?php echo $this->Html->link('Inicio', array('controller' => 'pages', 'action' => 'display', 'home'),array('class'=>'nav-link')); ?>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/blogCake2/Tidings">Noticas</a>
+                                <?php echo $this->Html->link('Noticias', array('controller'=>'tidings','action'=>'index'),array('class'=>'nav-link')); ?>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/blogCake2/Authors">Autores</a>
+                                <?php echo $this->Html->link('Autores', array('controller'=>'authors','action'=>'index'),array('class'=>'nav-link')); ?>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/blogCake2/Tags">Categorías</a>
+                                <?php echo $this->Html->link('Categorías', array('controller'=>'tags','action'=>'index'),array('class'=>'nav-link')); ?>
                             </li>
                         </ul>
                     </div>

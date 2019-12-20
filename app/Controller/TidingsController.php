@@ -1,8 +1,18 @@
 <?php
     class TidingsController extends AppController{
+        public $helpers = array('Html','Form');
+        public $components = array('Session');
+
         public function index(){
+
             $this->Tiding->recursive=0;
             $this->set('noticias',$this->Paginate());
+            $noticiasInicio = $this->Paginate();
+
+            return $noticiasInicio;
+            $authors = $this->Tiding->Author->find('list');
+            $tags = $this->Tiding->Tag->find('list');
+            $this->set(compact('authors','tags'));
         }
         public function agregar(){
             if($this->request->is('post')){
